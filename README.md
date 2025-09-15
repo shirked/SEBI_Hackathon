@@ -20,6 +20,46 @@ Required columns:
 - Client Complaints
 - Reporting Delay (days)
 
+## 🧮 Rule-based Evaluation Across 5 Dimensions
+
+Each broker is evaluated across five compliance checks.  
+Each check contributes **20 points**, for a total score of **100**.  
+Failed checks are flagged and listed in the report.
+
+---
+
+### ✅ Scoring Breakdown
+
+- **KYC Completed?**
+  - ✔️ Yes → +20 Points  
+  - ❌ No → Flag: KYC not completed
+
+- **Capital Adequacy ≥ 100%?**
+  - ✔️ Yes → +20 Points  
+  - ❌ No → Flag: Capital adequacy < 100%
+
+- **Client Complaints ≤ 2?**
+  - ✔️ Yes → +20 Points  
+  - ❌ No → Flag: Complaints > 2
+
+- **Reporting Delay ≤ 1 day?**
+  - ✔️ Yes → +20 Points  
+  - ❌ No → Flag: Reporting delay > 1 day
+
+- **Major Breaches Present?** *(i.e., complaints > 2 or delay > 1)*
+  - ❌ Yes → Flag: Major breaches present  
+  - ✔️ No → +20 Points
+
+---
+
+### 🧠 Final Score Classification
+
+| **Score Range** | **Status**         |
+|-----------------|--------------------|
+| 80–100          | ✅ Compliant        |
+| 50–79           | ⚠️ Needs Attention |
+| 0–49            | ❌ Non-Compliant    |
+
 Run locally
 -----------
 ```bash
